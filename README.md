@@ -7,7 +7,7 @@ Username must be "pi" and must be on 32 bit OS, unsure if lite will work or if f
 sudo apt install -y raspberrypi-kernel raspberrypi-kernel-headers
 
 # point to driver location<br>
-curl -sL "https://downloads.alfa.com.tw/raspbian/raspbian.public.key" | sudo apt-key add -
+curl -sL "https://downloads.alfa.com.tw/raspbian/raspbian.public.key" | sudo apt-key add -<br>
 echo "deb https://downloads.alfa.com.tw/raspbian/ bullseye main contrib non-free firmware rpi" | sudo tee /etc/apt/sources.list.d/alfa.list
 
 sudo apt update
