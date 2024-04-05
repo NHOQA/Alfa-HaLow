@@ -2,7 +2,7 @@
 Create mesh based on AHPI7292S. try to get required bits from Alfa script
 
 - #kernel headers
-sudo apt install -y raspberrypi-kernel raspberrypi-kernel-headers
+sudo reboot now
 #not sure what this line is for
 touch /tmp/.need_reboot
 
@@ -14,13 +14,9 @@ APT_REPOS_URL="https://downloads.alfa.com.tw/raspbian"
 - # this looks like the section to ahndle the drivers, not sure whats important here yet
 etup_nrc7292_pkgs() {
 	[ -e /etc/apt/sources.list.d/alfa.list ] || {
-		curl -sL "$APT_REPOS_URL/raspbian.public.key" | sudo apt-key add -
-		echo "deb $APT_REPOS_URL/ bullseye main contrib non-free firmware rpi" | sudo tee /etc/apt/sources.list.d/alfa.list
-	}
-
-	(dpkg -s nrc7292-dkms >/dev/null 2>&1) &&
-		(dpkg -s nrc7292-firmware >/dev/null 2>&1) &&
-		(dpkg -s nrc7292-nrc-pkg >/dev/null 2>&1) && return
+		curl -sL "https://downloads.alfa.com.tw/raspbian/raspbian.public.key" | sudo apt-key add -
+		echo "deb https://downloads.alfa.com.tw/raspbian/ bullseye main contrib non-free firmware rpi" | sudo tee /etc/apt/sources.list.d/alfa.list
+	y
 
 	sudo apt update
 	sudo apt install -y nrc7292-dkms nrc7292-firmware nrc7292-nrc-pkg || {
