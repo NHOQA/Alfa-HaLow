@@ -1,45 +1,21 @@
-# Alfa-HaLow
+- #Alfa-HaLow<br>
 Create mesh based on AHPI7292S. try to get required bits from Alfa script
+Username must be "pi" and must be on 32 bit OS, unsure if lite will work or if full is required like Teledatics
+#this process will complete without errors, but does not show alfa board interface and deletes wlan0
 
-- #kernel headers
-sudo reboot now
-#not sure what this line is for
-touch /tmp/.need_reboot
+- #kernel headers<br>
+sudo apt install -y raspberrypi-kernel raspberrypi-kernel-headers
 
-#looks like we need to enable SPI and serial maybe?
+- #point to driver location<br>
+curl -sL "https://downloads.alfa.com.tw/raspbian/raspbian.public.key" | sudo apt-key add -
+echo "deb https://downloads.alfa.com.tw/raspbian/ bullseye main contrib non-free firmware rpi" | sudo tee /etc/apt/sources.list.d/alfa.list
 
-#variable to set repo location
-APT_REPOS_URL="https://downloads.alfa.com.tw/raspbian"
+sudo apt update
 
-- # this looks like the section to ahndle the drivers, not sure whats important here yet
-etup_nrc7292_pkgs() {
-	[ -e /etc/apt/sources.list.d/alfa.list ] || {
-		curl -sL "https://downloads.alfa.com.tw/raspbian/raspbian.public.key" | sudo apt-key add -
-		echo "deb https://downloads.alfa.com.tw/raspbian/ bullseye main contrib non-free firmware rpi" | sudo tee /etc/apt/sources.list.d/alfa.list
-	y
+- #install driver
+sudo apt install -y nrc7292-dkms nrc7292-firmware nrc7292-nrc-pkg 
 
-	sudo apt update
-	sudo apt install -y nrc7292-dkms nrc7292-firmware nrc7292-nrc-pkg || {
-		echo "[Err] Install nrc7292 packages failed."
-		exit 1
-
-- #DT overlay setup, there was something about disableing SPI so it wouldnt be busy for the NRC spi controller or something
-setup_dtoverlays() {
-	local target_file="/boot/config.txt"
-
-	(cat $target_file | grep -e "#### Custom newracom block" >/dev/null 2>&1) || touch /tmp/.need_reboot
-
-	local block_beg=$(cat $target_file | grep -n "#### Custom newracom block beg ####" | cut -d: -f1)
-	block_beg=${block_beg:-0}
-	local block_end=$(cat $target_file | grep -n "#### Custom newracom block end ####" | cut -d: -f1)
-	block_end=${block_end:-0}
-
-	if [ $block_beg -gt 0 -a $block_end -gt 0 -a $block_end -gt $block_beg ]; then
-		# Remove duplicated block to keep idempotent
-		sudo sed -i $target_file -e "${block_beg},${block_end}d"
-	fi
-
-	cat | sudo tee -a $target_file <<EOD
+- #Add to boot/firmware/config.txt<br>	
 #### Custom newracom block beg ####
 [newracom]
 dtoverlay=disable-bt
