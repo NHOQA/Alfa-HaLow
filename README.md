@@ -1,9 +1,9 @@
 # Alfa-HaLow
 Create mesh based on AHPI7292S. try to get required bits from Alfa script
 
-#kernel headers
+- #kernel headers
 sudo apt install -y raspberrypi-kernel raspberrypi-kernel-headers
-# not sure what this line is for
+#not sure what this line is for
 touch /tmp/.need_reboot
 
 #looks like we need to enable SPI and serial maybe?
@@ -11,7 +11,7 @@ touch /tmp/.need_reboot
 #variable to set repo location
 APT_REPOS_URL="https://downloads.alfa.com.tw/raspbian"
 
-# this looks like the section to ahndle the drivers, not sure whats important here yet
+- # this looks like the section to ahndle the drivers, not sure whats important here yet
 etup_nrc7292_pkgs() {
 	[ -e /etc/apt/sources.list.d/alfa.list ] || {
 		curl -sL "$APT_REPOS_URL/raspbian.public.key" | sudo apt-key add -
@@ -27,7 +27,7 @@ etup_nrc7292_pkgs() {
 		echo "[Err] Install nrc7292 packages failed."
 		exit 1
 
-#DT overlay setup, there was something about disableing SPI so it wouldnt be busy for the NRC spi controller or something
+- #DT overlay setup, there was something about disableing SPI so it wouldnt be busy for the NRC spi controller or something
 setup_dtoverlays() {
 	local target_file="/boot/config.txt"
 
