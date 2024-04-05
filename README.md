@@ -2,6 +2,8 @@
 Create mesh based on AHPI7292S. try to get required bits from Alfa script
 Username must be "pi" and must be on 32 bit OS, unsure if lite will work or if full is required like Teledatics
 ### this process will complete without errors, but does not show alfa board interface and deletes wlan0
+### unsure if driver actually loaded? looking at that now
+
 
 # Kernel headers<br>
 - sudo apt install -y raspberrypi-kernel raspberrypi-kernel-headers
