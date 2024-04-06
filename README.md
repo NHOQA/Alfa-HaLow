@@ -27,6 +27,9 @@ now going to try this https://github.com/newracom/nrc7292_sw_pkg/blob/master/pac
 stuck at nrc7292_sw..../src/nrc make step 4.2
 "Makefile:5: /lib/modules/6.6.20+rpt-rpi-v8/build/.config: No such file or directory
 make: *** No rule to make target '/lib/modules/6.6.20+rpt-rpi-v8/build/.config'.  Stop."
-after looking through /lib/modules  6.6.20+rpt-rpi-v8 is the only version that does not have "build" inside its directory. That seems to be what the "make" command failure is going on about. may need an earlier kernel. some talk on the forums about install headers, but did that and still no build config in v8.
+after looking through /lib/modules  6.6.20+rpt-rpi-v8 does not have "build" inside its directory. That seems to be what the "make" command failure is going on about. may need an earlier kernel. some talk on the forums about install headers, but did that and still no build config in v8.
+ 6.1.21-v8+ also does not have build file , looks like the v7's do though 6.6 and 6.1
+ otherwise this process was going well
+
   
 
