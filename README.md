@@ -50,5 +50,6 @@ seems to have worked, now loading the 6.6.20-..-v7l kernel which has the build f
 
 step 3.5 after adding mac80211 to etc/modules it mentions blacklisting the broadcom wifi module. not doing this on this run. not sure if that will cause issues down the line.
 
+fails with invalid pointer errors during make
   
 
