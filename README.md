@@ -31,5 +31,20 @@ after looking through /lib/modules  6.6.20+rpt-rpi-v8 does not have "build" insi
  6.1.21-v8+ also does not have build file , looks like the v7's do though 6.6 and 6.1
  otherwise this process was going well
 
+ "Question: When running sudo sh install-driver.sh on my RasPi 4B or 400, I see the following:
+
+Your kernel header files aren't properly installed.
+Please consult your distro documentation or user support forums.
+Once the header files are properly installed, please run...
+
+possible fix below
+
+"Answer: The Pi 4/400 firmware now prefers the 64-bit kernel if one exists so even if you installed the 32 bit version of the RasPiOS, you may now have the 64 bit kernel active.
+The fix:
+add the following to /boot/config.txt and reboot:
+arm_64bit=0
+Reference:
+https://forums.raspberrypi.com/viewtopic.php?p=2091532&hilit=Tp+link#p2091532"
+
   
 
