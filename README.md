@@ -48,5 +48,7 @@ https://forums.raspberrypi.com/viewtopic.php?p=2091532&hilit=Tp+link#p2091532"
 
 seems to have worked, now loading the 6.6.20-..-v7l kernel which has the build file. now to run through entire process again to see if compile works
 
+step 3.5 after adding mac80211 to etc/modules it mentions blacklisting the broadcom wifi module. not doing this on this run. not sure if that will cause issues down the line.
+
   
 
