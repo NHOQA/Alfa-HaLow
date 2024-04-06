@@ -24,6 +24,8 @@ dtoverlay=disable-spidev<br>
 dtoverlay=miniuart-bt<br>
 
 now going to try this https://github.com/newracom/nrc7292_sw_pkg/blob/master/package/doc/UG-7292-018-Raspberry_Pi_setup.pdf
-
+stuck at nrc7292_sw..../src/nrc make
+"Makefile:5: /lib/modules/6.6.20+rpt-rpi-v8/build/.config: No such file or directory
+make: *** No rule to make target '/lib/modules/6.6.20+rpt-rpi-v8/build/.config'.  Stop."
   
 
