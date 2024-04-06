@@ -46,5 +46,7 @@ arm_64bit=0
 Reference:
 https://forums.raspberrypi.com/viewtopic.php?p=2091532&hilit=Tp+link#p2091532"
 
+seems to have worked, now loading the 6.6.20-..-v7l kernel which has the build file. now to run through entire process again to see if compile works
+
   
 
