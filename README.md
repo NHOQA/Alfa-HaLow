@@ -23,5 +23,7 @@ dtoverlay=disable-wifi<br>
 dtoverlay=disable-spidev<br>
 dtoverlay=miniuart-bt<br>
 
+now going to try this https://github.com/newracom/nrc7292_sw_pkg/blob/master/package/doc/UG-7292-018-Raspberry_Pi_setup.pdf
+
   
 
