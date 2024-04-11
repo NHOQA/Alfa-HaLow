@@ -50,22 +50,4 @@ seems to have worked, now loading the 6.6.20-..-v7l kernel which has the build f
 
 step 3.5 after adding mac80211 to etc/modules it mentions blacklisting the broadcom wifi module. not doing this on this run. not sure if that will cause issues down the line.
 
-fails with invalid pointer errors during make from nrc7292....../src/nrc
-"make[1]: Entering directory '/usr/src/linux-headers-6.6.20+rpt-rpi-v7l'
-  CC [M]  /home/pi/nrc7292_sw_pkg/package/src/nrc/nrc-netlink.o
-/home/pi/nrc7292_sw_pkg/package/src/nrc/nrc-netlink.c:129:27: error: initialization of ‘int (*)(const struct genl_split_ops *, struct sk_buff *, struct genl_info *)’ from incompatible pointer type ‘int (*)(const struct genl_ops *, struct sk_buff *, struct genl_info *)’ [-Werror=incompatible-pointer-types]
-  129 |         .pre_doit       = nrc_nl_pre_doit,
-      |                           ^~~~~~~~~~~~~~~
-/home/pi/nrc7292_sw_pkg/package/src/nrc/nrc-netlink.c:129:27: note: (near initialization for ‘nrc_nl_fam.pre_doit’)
-/home/pi/nrc7292_sw_pkg/package/src/nrc/nrc-netlink.c:130:27: error: initialization of ‘void (*)(const struct genl_split_ops *, struct sk_buff *, struct genl_info *)’ from incompatible pointer type ‘void (*)(const struct genl_ops *, struct sk_buff *, struct genl_info *)’ [-Werror=incompatible-pointer-types]
-  130 |         .post_doit      = nrc_nl_post_doit,
-      |                           ^~~~~~~~~~~~~~~~
-/home/pi/nrc7292_sw_pkg/package/src/nrc/nrc-netlink.c:130:27: note: (near initialization for ‘nrc_nl_fam.post_doit’)
-cc1: all warnings being treated as errors
-make[3]: *** [/usr/src/linux-headers-6.6.20+rpt-common-rpi/scripts/Makefile.build:248: /home/pi/nrc7292_sw_pkg/package/src/nrc/nrc-netlink.o] Error 1
-make[2]: *** [/usr/src/linux-headers-6.6.20+rpt-common-rpi/Makefile:1938: /home/pi/nrc7292_sw_pkg/package/src/nrc] Error 2
-make[1]: *** [/usr/src/linux-headers-6.6.20+rpt-common-rpi/Makefile:246: __sub-make] Error 2
-make[1]: Leaving directory '/usr/src/linux-headers-6.6.20+rpt-rpi-v7l'
-make: *** [Makefile:50: modules] Error 2"
-  
 
