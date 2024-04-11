@@ -50,4 +50,8 @@ seems to have worked, now loading the 6.6.20-..-v7l kernel which has the build f
 
 step 3.5 after adding mac80211 to etc/modules it mentions blacklisting the broadcom wifi module. not doing this on this run. not sure if that will cause issues down the line.
 
+### actually managed to get an interface to show following this https://github.com/newracom/nrc7292_sw_pkg/blob/master/package/doc/UG-7292-018-Raspberry_Pi_setup.pdf
+while on 32 bit bullseye full image and doing the arm_64bit=0 mod in /boot/config.txt
+issue now is what arguments to pass through with insmod when loading the driver. and somehow I've deleted my normal wifi interface in this process.
+Running the fullmesh commands does allow the alfa board to see the teledatics boards using mpath dump, but no pings go across either way and ip a on the alfa unit says no-carrier and state dormant
 
