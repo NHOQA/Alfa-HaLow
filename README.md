@@ -1,3 +1,5 @@
+# Board only 21 dbm, no improvement over td-xpah and support much worse
+
 # Alfa-HaLow<br>
 Create mesh based on AHPI7292S. try to get required bits from Alfa script
 Username must be "pi" and must be on 32 bit OS, unsure if lite will work or if full is required like Teledatics
